@@ -141,3 +141,5 @@ game:GetService("CoreGui").BubbleChat.DescendantAdded:Connect(Convert)
 ChatUi.ChatChannelParentFrame.Frame_MessageLogDisplay.Scroller.DescendantAdded:Connect(LogConvert)
 
 LocalPlayer.PlayerGui.BubbleChat.DescendantAdded:Connect(Convert)
+
+SendNotification("Hacker Chat Loaded","Scripted by Burgundy(8000-20)")

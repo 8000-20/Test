@@ -125,6 +125,7 @@ function Convert(Object)
 end
 
 LocalPlayer.PlayerGui.BubbleChat.DescendantAdded:Connect(Convert)
+game:GetService("CoreGui").BubbleChat.DescendantAdded:Connect(Convert)
 
 ChatUi.ChatChannelParentFrame.Frame_MessageLogDisplay.Scroller.DescendantAdded:Connect(function(Object)
 	if not Object:IsA("TextLabel") then return end
@@ -137,20 +138,5 @@ ChatUi.ChatChannelParentFrame.Frame_MessageLogDisplay.Scroller.DescendantAdded:C
 	end
 	Convert(Object)
 end)
-
-game:GetService("CoreGui").BubbleChat.DescendantAdded:Connect(function(Object)
-	if not Object:IsA("TextLabel") then return end
-	if string.match(Object.Text,Key) then
-		local Message = Object.Text:gsub(Key,"")
-		for i,v in Chars do
-			Message = Message:gsub(v.Replace, v.Char)
-		end
-		game:GetService("TextChatService"):DisplayBubble(Object.Parent.Parent.Parent.Parent.Adornee, Message)
-		--game:GetService("Chat"):Chat(Object.Parent.Parent.Parent.Parent.Adornee, Object.Text, "White")
-		--Object.Parent.Parent:Destroy()
-	end
-end)
-
---
 
 SendNotification("\72\97\99\107\101\114\32\67\104\97\116\32\76\111\97\100\101\100","\83\99\114\105\112\116\101\100\32\98\121\32\66\117\114\103\117\110\100\121\40\56\48\48\48\45\50\48\41")

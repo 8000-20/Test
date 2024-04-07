@@ -141,7 +141,7 @@ end)
 game:GetService("CoreGui").BubbleChat.DescendantAdded:Connect(function(Object)
 	if not Object:IsA("TextLabel") then return end
 	if string.match(Object.Text,Key) then
-		game:GetService("ChatService"):Chat(Object.Parent.Parent.Parent.Parent.Adornee, Object.Text, "White")
+		game:GetService("Chat"):Chat(Object.Parent.Parent.Parent.Parent.Adornee, Object.Text, "White")
 		Object.Parent.Parent:Destroy()
 	end
 end)
